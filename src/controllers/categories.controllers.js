@@ -12,10 +12,12 @@ export async function create(req, res){
 }
 
 export async function findAll(req, res){
+    
     try{
         const all = await connectionDB.query("SELECT * FROM categories;")
         res.send(all.rows)
     }catch(err){
         res.status(500).send(err.message)
     }
+
 }
